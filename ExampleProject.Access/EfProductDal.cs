@@ -7,10 +7,11 @@ using System.Threading.Tasks;
 
 namespace ExampleProject.Access
 {
-    public class ProductDal:IProductDal
+    public class EfProductDal : IProductDal
     {
+
         List<Product> _products;
-        public ProductDal()
+        public EfProductDal()
         {
             _products = new List<Product>()
             {
@@ -22,7 +23,7 @@ namespace ExampleProject.Access
 
         public void Add(Product product)
         {
-            Console.WriteLine("Ado.NET has added... ");
+            Console.WriteLine("Ef has added...");
         }
 
         public List<Product> GetAll()

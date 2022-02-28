@@ -11,6 +11,11 @@ namespace ExampleProject.Business
     public class ProductManager
     {
 
+        IProductDal _productDal;
+        public ProductManager(IProductDal productDal)
+        {
+            _productDal = productDal;
+        }
 
         public List<Product> GetAll()
         {
