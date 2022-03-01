@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace ExampleProject.Access
 {
-    public interface IProductDal:IEntityRepository<Product>
+    public interface IOrderDal:IEntityRepository<Order>
     {
- 
+
 
     }
 }
