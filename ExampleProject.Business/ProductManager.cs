@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace ExampleProject.Business
 {
-    public class ProductManager
+    public class ProductManager:IProductService
     {
 
         IProductDal _productDal;
@@ -17,11 +17,24 @@ namespace ExampleProject.Business
             _productDal = productDal;
         }
 
-        public List<Product> GetAll()
+        public void Add(Product product)
         {
-            ProductDal productDal = new ProductDal();
-            return productDal.GetAll();
+            _productDal.Add(product);
         }
 
+        public void Delete(Product product)
+        {
+            _productDal.Delete(product);
+        }
+
+        public List<Product> GetAll()
+        {
+            return _productDal.GetAll();
+        }
+
+        public void Update(Product product)
+        {
+            _productDal.Update(product);
+        }
     }
 }

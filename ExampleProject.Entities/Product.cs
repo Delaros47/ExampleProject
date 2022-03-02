@@ -13,7 +13,7 @@ namespace ExampleProject.Entities
         public string ProductName { get; set; }
         public string QuantityPerUnit { get; set; }
         public decimal UnitPrice { get; set; }
-        public int UnitsInStock { get; set; }
+        public short UnitsInStock { get; set; }
 
 
 

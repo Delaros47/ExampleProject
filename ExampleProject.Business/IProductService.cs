@@ -11,5 +11,7 @@ namespace ExampleProject.Business
     {
         List<Product> GetAll();
         void Add(Product product);
+        void Update(Product product);
+        void Delete(Product product);
     }
 }

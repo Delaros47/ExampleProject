@@ -24,7 +24,7 @@ namespace ExampleProject.Access
             throw new NotImplementedException();
         }
 
-        public List<Customer> GetById(int id)
+        public Customer GetById(int id)
         {
             throw new NotImplementedException();
         }

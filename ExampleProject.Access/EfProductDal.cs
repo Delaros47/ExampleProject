@@ -1,4 +1,5 @@
 ﻿using ExampleProject.Entities;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,40 +11,51 @@ namespace ExampleProject.Access
     public class EfProductDal : IProductDal
     {
 
-        List<Product> _products;
-        public EfProductDal()
-        {
-            _products = new List<Product>()
-            {
-                new Product{ProductId=1,ProductName="Monitor",QuantityPerUnit="In a box",UnitPrice=1450,UnitsInStock=249},
-                new Product{ProductId=2,ProductName="RAM",QuantityPerUnit="In a box",UnitPrice=540,UnitsInStock=320},
-                new Product{ProductId=3,ProductName="Camera",QuantityPerUnit="In a box",UnitPrice=180,UnitsInStock=541},
-            };
-        }
 
         public void Add(Product product)
         {
-            Console.WriteLine("Ef has added...");
+            using (NorthwindContext context = new NorthwindContext())
+            {
+                var addedProduct = context.Entry(product);
+                addedProduct.State = EntityState.Added;
+                context.SaveChanges();
+            }
         }
 
         public void Delete(Product product)
         {
-            throw new NotImplementedException();
+            using (NorthwindContext context = new NorthwindContext())
+            {
+                var deletedProduct = context.Entry(product);
+                deletedProduct.State = EntityState.Deleted;
+                context.SaveChanges();
+            }
         }
 
         public List<Product> GetAll()
         {
-            return _products;
+            using (NorthwindContext context = new NorthwindContext())
+            {
+                return context.Products.ToList();
+            };
         }
 
-        public List<Product> GetById(int id)
+        public Product GetById(int id)
         {
-            throw new NotImplementedException();
+            using (NorthwindContext context = new NorthwindContext())
+            {
+                return context.Products.SingleOrDefault(p=>p.ProductId==id);
+            }
         }
 
         public void Update(Product product)
         {
-            throw new NotImplementedException();
+            using (NorthwindContext context = new NorthwindContext())
+            {
+                var updatedProduct = context.Entry(product);
+                updatedProduct.State = EntityState.Modified;
+                context.SaveChanges();
+            }
         }
     }
 }

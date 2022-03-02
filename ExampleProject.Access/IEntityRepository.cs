@@ -10,7 +10,7 @@ namespace ExampleProject.Access
     public interface IEntityRepository<T> where T:class,IEntity,new()
     {
         List<T> GetAll();
-        List<T> GetById(int id);
+        T GetById(int id);
         void Add(T entity);
         void Update(T entity);
         void Delete(T entity);

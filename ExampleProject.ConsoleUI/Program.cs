@@ -1,14 +1,6 @@
 ﻿using ExampleProject.Access;
 using ExampleProject.Business;
-
-
-
-
-
-
-
-
-
+using ExampleProject.Entities;
 
 
 
@@ -18,9 +10,6 @@ foreach (var product in productManager.GetAll())
 {
     Console.WriteLine(product.ProductName);
 }
-
-
-
 
 
 
