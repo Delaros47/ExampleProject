@@ -22,6 +22,11 @@ namespace ExampleProject.Business
             _productDal.Add(product);
         }
 
+        public async Task AddAsync(Product product)
+        {
+            await _productDal.AddAsync(product);
+        }
+
         public void Delete(Product product)
         {
             _productDal.Delete(product);
@@ -30,6 +35,11 @@ namespace ExampleProject.Business
         public List<Product> GetAll()
         {
             return _productDal.GetAll();
+        }
+
+        public Task<List<Product>> GetAllAsync()
+        {
+           return _productDal.GetAllAsync();
         }
 
         public void Update(Product product)

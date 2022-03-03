@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ExampleProject.Access
 {
-    public interface IProductDal:IEntityRepository<Product>
+    public interface IProductDal:IEntityRepository<Product>,IAsyncEntityRepository<Product>
     {
  
 
